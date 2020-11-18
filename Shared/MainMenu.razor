@@ -5,9 +5,7 @@
     <ul class="navbar-nav">
         @foreach (var item in MenuItems)
         {
-            <li class="nav-item @(item.Active ? "active" : null)">
-                <a class="nav-link" href="#" @onclick="e => OnMenuItemClick.InvokeAsync(item)">@item.Caption</a>
-            </li>
+           @item.Caption
         }
     </ul>
 </nav>

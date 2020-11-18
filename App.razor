@@ -1,8 +1,14 @@
-﻿<MainMenu MenuItems="MenuItems" OnMenuItemClick="MenuItemClick" />
-<div class="container mt-3">
-    <h2>Article Manager</h2>
-    <p>Welcome</p>
-</div>
+﻿<Router AppAssembly="@typeof(Program).Assembly">
+    <Found Context="routeData">
+        <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)"/>
+    </Found>
+    <NotFound>
+        <LayoutView Layout="@typeof(MainLayout)">
+            <p>Nothing here</p>
+        </LayoutView>
+    </NotFound>
+
+</Router>
 
 @code{
 
@@ -12,14 +18,7 @@
             this.loadMenuItems();
         }
 
-        public void MenuItemClick(MenuItem item)
-        {
-            foreach (var menuItem in MenuItems)
-            {
-                menuItem.Active = false;
-            }
-            item.Active = true;
-        }
+     
 
         private void loadMenuItems()
         {
@@ -27,12 +26,12 @@
             {
             new MenuItem()
             {
-                Caption = "Article Categories", Active = true
+                Caption = "Article Categories", Href = "articlecategories"
               },
 
             new MenuItem()
               {
-            Caption = "Articles", Active = false
+            Caption = "Articles", Href = "articles"
             }
 
           };
