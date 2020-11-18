@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using countdown_wasm;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
 namespace article_manager_wasm
@@ -12,7 +13,7 @@ namespace article_manager_wasm
         public static async Task Main(string[] args)
         {
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
-          
+            builder.RootComponents.Add<App>("app");
             await builder.Build().RunAsync();
         }
 
